@@ -267,7 +267,50 @@ const closeButtonPressed = (e) => {
         } 
     }
 }
+const checkRequired = (inputArray) => {
+    inputArray.forEach((input) => {
+        if(input.value.trim() === "") {
+            setErrorMessage(input, input.id + "is empty")
+        } else{
+            deleteErrorMessage(input)
+        }
+    })
+}
+// error message when input not wanted
+const checkEmail = (input) => {
+    if(input.value.trim() !== "") {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if(re.test(input.value.trim())) {
+            deleteErrorMessage(input)
+        } else {
+            showErrorMessage(input, input.id + "is invalid")
+        }
+    }
+}
 
+
+const checkInputLength = (input, num) => {
+    if(input.value.trim() !== "") {
+        if(input.value.trim().length === num) {
+            deleteErrorMessage(input)
+        } else {
+            setErrorMessage(input , input.id = 'must be ${num} digits')
+        }
+    }
+    }
+const deleteErrorMessage = (input) => {
+    delete[error.id]
+    input.style.border = "1px solid green"
+}
+
+const setErrorMessage = (input, message) => {
+    if(input.nodeName === "INPUT") {
+        error[input.id] = message
+        input.style.border = "1px solid red"
+    } else {
+        error[input] = message
+    }
+}
 
 
 
