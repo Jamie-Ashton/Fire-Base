@@ -1,56 +1,92 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css"/>
+    <title>Document</title>
+</head>
+<body>
+  <main id="app-layout">
+    <section id="left-col">
+      <header>
+       <div class="left">
+       </div>
+       <div class="title">
+          Details
+       </div>
+       <div class="right">
+        <button class="add-btn">Add</button>
+       </div>
+      </header>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-    <h1>firebase-example
-    <br />
-    <small>student ID</small>
-</h1>
-<ul id="studentsList">
-    <div id="studentInfo">
-        <p>
-            Name:
-            <strong id="studentDetail"></strong>
-        </p>
-        <p>
-            age:
-            <strong class="studentAge"></strong>
-        </p>
-        <p>
-            Email:
-            <strong class="studentEmail"></strong>
-        </p>
+      <ul id="details-list">
+      </ul>
+    </section>
+
+    <section id="right-col">
+      <header>
+        <div>
+          <button id="back-btn">Back</button>
+        </div>
+        <div class="title">
+        Name
+        </div>
+      </header>
+      <div id="right-col-detail"></div>
+    </section>
+  </main>
+
+  <!--MODAL-->
+
+  <div id="modal-overlay">
+    <div id="modal">
+      <div class="modal-header">
+      <h2>Add Details</h2>
+      </div>
+       <ul id="error-label"></ul>
+       <div class="modal-content">
+
+        <div class="row">
+        <div class="input-group">
+          <label>First Name</label>
+          <input type="text" id="firstname">
+        </div>
+        <div class="input-group">
+          <label>Last Name</label>
+          <input type="text" id="lastname">
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="input-group">
+          <label>Age</label>
+          <input type="number" id="age">
+        </div>
+        <div class="input-group">
+          <label>Phone</label>
+          <input type="number" id="phone">
+        </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <label for="">Email</label>
+            <input type="email" id="email">
+          </div>
+        </div>
+
+       </div>
+
+       <div class="modal-footer">
+        <button class="close-btn">Close</button>
+        <button class="save-btn">Save</button>
+       </div>
+
     </div>
-</ul>
-        
-    <script src="app.js"></script>
-    <script type="module">
+  </div>
 
-        // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyBXg04t3matWwV000rri2EDYXWRNQBwPxc",
-  authDomain: "fir-example-fc0ea.firebaseapp.com",
-  projectId: "fir-example-fc0ea",
-  storageBucket: "fir-example-fc0ea.appspot.com",
-  messagingSenderId: "970257931610",
-  appId: "1:970257931610:web:8adfa6d4a46c097c5f2763"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);   
-</script>
+  <script src="firebase-sdk.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
