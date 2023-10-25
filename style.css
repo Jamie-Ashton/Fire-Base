@@ -119,7 +119,7 @@ input[type="email"] {
     padding-left: 10px;
 }
 
-.contact-list-item . .content .title {
+.contact-list-item .content .title {
     font-size: 12px;
     font-weight: bold;
     color: darkmagenta;
