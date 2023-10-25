@@ -87,8 +87,9 @@ const showContacts = () => {
 
 const contactListPressed = (event) => {
     const id = event.target.closest("li").getAttribute("id")
+
     if(event.target.className === "edit-user") {
-        editButtonPressed(id)
+    editButtonPressed(id)
     } else if (event.target.className === "delete-user") {
         deleteButtonPressed(id)
     } else {
@@ -103,19 +104,19 @@ contactlist.addEventListener("click", contactListPressed)
 
 const deleteButtonPressed = async (id) => {
     const isConfirmed = confirm("are you sure you want to delete?")
-}
+
 if(isConfirmed) {
     try {
         const docRef = doc(db, "contacts", id)
         await deleteDoc(docRef)
-     catch(e) {
+} catch(e) {
         setErrorMessage(
             "error",
             "unable to delete the contact information"
         )
-        displayErrorMessage()
-     }
-    }
+displayErrorMessage()
+}
+}
 }
 //SECTION - edit button
 
